@@ -27,9 +27,25 @@ public class Tablero {
     public Tablero() {
         bomba = new int[10][10];
         pizarra = new char[10][10];
-        startMines();
-        randomMines();
-        fillTips();
-        startBoard();
+        iniciabomas();
+        randombombas();
+        campos();
+        iniciartablero();
     }
-}
+     /**
+     *
+     * @return count 
+     */
+    // Metodo boolean win
+    public boolean ganar() {
+        int count = 0;
+        for (int line = 1; line < 9; line++) {
+            for (int column = 1; column < 9; column++) {
+                if (pizarra[line][column] == '_') {
+                    count++;
+                } // Cierre del bucle if
+            } // Cierre del bucle for #2
+        } // Cierre del bucle for #1
+        return count == 10;
+    } // Cierre del metodo boolean
+    

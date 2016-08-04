@@ -16,6 +16,6 @@ public class Buscaminas1 {
      **/
     public static void main(String[] args) {
         Menu m= new Menu(); // Instancia de la clase Menu
-        m.menuBuscaminas1(); // Sentencia que llama al menu
+        m.menuBuscaminas();  // Sentencia que llama al menu
     } // Cierre de la clase main   
 } // Cierre de la clase Buscaminas 

@@ -33,4 +33,20 @@ public class Menu extends Object{
      */
     // Metodo public Menu
     public Menu() {}
-    
+    /**
+     ** 
+     **/
+    // Metodo de menu que llama a las clases
+    public void menuBuscaminas(){
+        do{
+        try{
+        opcion=Integer.parseInt(JOptionPane.showInputDialog(null,"Digite una opcion"+"\n 1 > Jugar"+"\n 2 > Salir")); 
+        }catch(Exception opcion){
+        }
+        switch(opcion){//Menu de Seleccion
+        //Caso 1
+        case 1:{
+        opcion=1;
+        System.out.println("Espere");
+        buscaminas1.Juego juegi = new buscaminas1.Juego();
+        break;
