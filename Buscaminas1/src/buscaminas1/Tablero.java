@@ -98,4 +98,72 @@ public class Tablero {
             else
                 return false;
     }
+    public void mostrar (){
+        System.out.println("\n     Filas");
+        for(int Linea = 8 ; Linea > 0 ; Linea--){
+            System.out.print("       "+Linea + " ");
+            
+            for(int Columna = 1 ; Columna < 9 ; Columna++){
+                    System.out.print("   "+ pizarra[Linea][Columna]);
+            }
+                
+            System.out.println();
+        }
+            
+        System.out.println("\n            1   2   3   4   5   6   7   8");
+        System.out.println("                      Columnas");
+        
+    }
     
+    private void llenarCampos(){
+        for(int linea=1 ; linea < 9 ; linea++)
+            for(int columna=1 ; columna < 9 ; columna++){
+                
+                    for(int i=-1 ; i<=1 ; i++)
+                        for(int j=-1 ; j<=1 ; j++)
+                            if(bomba[linea][columna] != -1)
+                                if(bomba[linea+i][columna+j] == -1)
+                                    bomba[linea][columna]++;
+                
+            }
+    }
+public void mostrarBomba(){
+        for(int i=1 ; i < 9; i++)
+            for(int j=1 ; j < 9 ; j++)
+                if(bomba[i][j] == -1)
+                    pizarra[i][j]='*';
+        
+        mostrar();
+    }
+    
+    private void iniciarTablero(){
+        for(int i=1 ; i<bomba.length ; i++)
+            for(int j=1 ; j<bomba.length ; j++)
+                pizarra[i][j]= '_';
+    }
+    
+    private void iniciarBomba(){
+        for(int i=0 ; i<bomba.length ; i++)
+            for(int j=0 ; j<bomba.length ; j++)
+                bomba[i][j]=0;
+    }
+    
+    private void randomBomba(){
+        boolean raffled;
+        int Linea, Columna;
+        for(int i=0 ; i<10 ; i++){
+            
+            do{
+                Linea = random.nextInt(8) + 1;
+                Columna = random.nextInt(8) + 1;
+                
+                if(bomba[Linea][Columna] == -1)
+                    raffled=true;
+                else
+                    raffled = false;
+            }while(raffled);
+            
+            bomba[Linea][Columna] = -1;
+        }
+    }
+}
