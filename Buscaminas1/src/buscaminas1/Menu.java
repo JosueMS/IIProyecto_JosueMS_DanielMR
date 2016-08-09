@@ -45,12 +45,7 @@ public class Menu extends Object{
         }
         switch(opcion){//Menu de Seleccion
         //Caso 1
-        
-            
-            
-            
-            
-            case 1:{
+        case 1:{
         opcion=1;
         System.out.println("Espere");
         buscaminas1.Juego juego = new buscaminas1.Juego();

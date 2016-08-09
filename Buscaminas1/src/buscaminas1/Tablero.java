@@ -5,7 +5,6 @@
  */
 //paquetes
 package buscaminas1;
-
 //Importes
 import java.util.Random;
 import java.util.Scanner;
@@ -49,9 +48,7 @@ public class Tablero {
         } // Cierre del bucle for #1
         return count == 10;
     }// Cierre del metodo boolean
-    
-
- /**
+    /**
      *
      *
      */
@@ -64,10 +61,8 @@ public class Tablero {
                 } // Cierre del bucle if
             } // Cierre del bucle for #2
         } // Cierre del bucle for #1
-
     } // Cierre del metodo void openNeighbors
-    
-    /**
+   /**
      *
      * @param Linea
      * @param Columna
@@ -77,44 +72,45 @@ public class Tablero {
     public int getPosicion(int Linea, int Columna) {
         return bomba[Linea][Columna];
     }
-
-    
+    /**
+     *
+     * @return true, false
+     */
     public boolean setPosition(){
-            do{
-                System.out.print("\n Filas: "); 
-                Linea = entrada.nextInt();
-                System.out.print("Columnas: "); 
-                Columna = entrada.nextInt();
-                if( (pizarra[Linea][Columna] != '_') && ((Linea < 9 && Linea > 0) && (Columna < 9 && Columna > 0)))
-                    System.out.println("El campo que se muestran");
-                
-                if( Linea < 1 || Linea > 8 || Columna < 1 || Columna > 8)
-                    System.out.println("Elegir un número entre 1 y 8");
-                
-            }while((Linea < 1 || Linea > 8 || Columna < 1 || Columna > 8) || (pizarra[Linea][Columna] != '_') );
-            
-            if(getPosicion(Linea, Columna)== -1)
-                return true;
-            else
-                return false;
-    }
+            do{// Metodo bucle do
+                System.out.print("\n Filas: "); // Sentencia que imprime este mensaje
+                Linea = entrada.nextInt(); // Sentencia que ingresa un numero entero
+                System.out.print("Columnas: "); // Sentencia que imprime este mensaje
+                Columna = entrada.nextInt(); // Sentencia qye ingresa un numero entero
+                if( (pizarra[Linea][Columna] != '_') && ((Linea < 9 && Linea > 0) && (Columna < 9 && Columna > 0)))// bucle if que evalua lo que esta dentro
+                    System.out.println("El campo que se muestran");// Sentencia que imprime este mensaje
+                 if( Linea < 1 || Linea > 8 || Columna < 1 || Columna > 8) // bucle if que valua tamano de las lienas y columnas
+                    System.out.println("Elegir un número entre 1 y 8"); // Sentencia que imprime los numeros de la filas y columnas
+                }while((Linea < 1 || Linea > 8 || Columna < 1 || Columna > 8) || (pizarra[Linea][Columna] != '_') );// Bucle while
+                return getPosicion(Linea, Columna)== -1; // Sentencia que retorna getPosicion
+    } // Cierre del metodo boolean
+    /**
+     *
+     * 
+     */
+    // Metodo public void mostrar
     public void mostrar (){
-        System.out.println("\n     Filas");
-        for(int Linea = 8 ; Linea > 0 ; Linea--){
-            System.out.print("       "+Linea + " ");
-            
-            for(int Columna = 1 ; Columna < 9 ; Columna++){
-                    System.out.print("   "+ pizarra[Linea][Columna]);
+        System.out.println("\n     Filas");  // Sentencia que imprime este mensaje
+        for(int Linea = 8 ; Linea > 0 ; Linea--){ // Bucle for que evalua lo que esta dentro de los parentesis
+            System.out.print("       "+Linea + " "); // Sentencia que imprime este mensaje
+            for(int Columna = 1 ; Columna < 9 ; Columna++){ // Bucle for que evalua lo que esta dentro de los parentesis
+                    System.out.print("   "+ pizarra[Linea][Columna]);// Sentencia que imprime este mensaje
             }
-                
-            System.out.println();
+                System.out.println(); // Sentencia que imrpime al vacio
         }
-            
-        System.out.println("\n            1   2   3   4   5   6   7   8");
-        System.out.println("                      Columnas");
-        
+        System.out.println("\n            1   2   3   4   5   6   7   8"); //Sentencia que imprime este mensaje
+        System.out.println("                      Columnas"); // Sentencia que imprime este mensaje
     }
-    
+     /**
+     *
+     *
+     */
+    // Metodo private void llenarCampos
     private void llenarCampos(){
         for(int linea=1 ; linea < 9 ; linea++)
             for(int columna=1 ; columna < 9 ; columna++){
@@ -124,46 +120,53 @@ public class Tablero {
                             if(bomba[linea][columna] != -1)
                                 if(bomba[linea+i][columna+j] == -1)
                                     bomba[linea][columna]++;
-                
-            }
-    }
-public void mostrarBomba(){
+            } // Cierre del bucle for
+    } // Cierre del metodo llenarCampos
+    /**
+     *
+     */
+    // Metodo public void mostrarBomba
+    public void mostrarBomba(){
         for(int i=1 ; i < 9; i++)
             for(int j=1 ; j < 9 ; j++)
                 if(bomba[i][j] == -1)
                     pizarra[i][j]='*';
-        
         mostrar();
-    }
-    
-    private void iniciarTablero(){
-        for(int i=1 ; i<bomba.length ; i++)
+    } // Cierre del metodo public void mostrarBomba
+  /**
+     *
+     */
+    // Metodo public void iniciarTablero
+private void iniciarTablero(){
+        for(int i=1 ; i<bomba.length ; i++) 
             for(int j=1 ; j<bomba.length ; j++)
                 pizarra[i][j]= '_';
-    }
-    
+    } // Cierre private void iniciarTablero
+    /**
+     *
+     */
+    // Metodo public void iniciarBomba
     private void iniciarBomba(){
-        for(int i=0 ; i<bomba.length ; i++)
-            for(int j=0 ; j<bomba.length ; j++)
-                bomba[i][j]=0;
-    }
-    
+        for (int[] bomba1 : bomba) {
+            for (int j = 0; j<bomba.length; j++) {
+                bomba1[j] = 0;
+            } // Cierre del bucle for
+        }
+    } // Cierre private void randomBomba
+    /**
+     *
+     */
+    // Metodo public void randomBomba
     private void randomBomba(){
-        boolean raffled;
+        boolean raffled; // boolean llamada raffled
         int Linea, Columna;
         for(int i=0 ; i<10 ; i++){
-            
-            do{
+            do{ // Bucle do 
                 Linea = random.nextInt(8) + 1;
                 Columna = random.nextInt(8) + 1;
-                
-                if(bomba[Linea][Columna] == -1)
-                    raffled=true;
-                else
-                    raffled = false;
+            raffled = bomba[Linea][Columna] == -1;
             }while(raffled);
-            
             bomba[Linea][Columna] = -1;
-        }
-    }
-}
+        } // Cierre del bucle for
+    } // Cierre del metodo private randomBomba
+} // Cierre del metodo public Tablero 

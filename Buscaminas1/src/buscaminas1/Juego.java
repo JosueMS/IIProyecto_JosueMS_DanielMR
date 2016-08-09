@@ -39,13 +39,11 @@ public class Juego {
             bomba.mostrar();
 // Sentencia que muestra el tablero
             fin = bomba.setPosition(); // Sentencia fin igualada a mina.setPosition
-            
             if(!fin){ // Sentencia de bucle
                 bomba.AbrirVecinos();
                 fin = bomba.ganar();
             }
         }while(!fin); // Sentencia de bucle while
-        
         if(bomba.ganar()){ // Sentencia de bucle que incluye mina.ganar
             System.out.println("Felicitaciones! Has Ganado"); // Sentencia que imprime este mensaje
             JOptionPane.showMessageDialog(null,"Felicitaciones! Has Ganado"); // Sentencia que imprime este mensaje
