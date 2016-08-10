@@ -66,7 +66,7 @@ public class Tablero {
      *
      * @param Linea
      * @param Columna
-     * @return mines
+     * @return bomba
      */
     //Metodo public int getPosition
     public int getPosicion(int Linea, int Columna) {
