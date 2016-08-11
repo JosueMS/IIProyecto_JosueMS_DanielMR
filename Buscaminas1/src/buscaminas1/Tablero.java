@@ -11,7 +11,7 @@ import java.util.Scanner;
 /**
  **
  ** @author Josue Muñoz Solis & Daniel Murillo Rodriguez
- ** @date 
+ ** @date 2016-08-10 miercoles
  **/
 public class Tablero {
     private final int[][] bomba; // Sentencia final int con un valor
